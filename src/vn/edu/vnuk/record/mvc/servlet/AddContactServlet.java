@@ -42,7 +42,6 @@ public class AddContactServlet extends HttpServlet {
 		String address = request.getParameter("address");
 		String email = request.getParameter("email");
 		String dateInStringFormat = request.getParameter("date_of_birth");
-		
 		Calendar dateOfBirth = null;
 		
 		// 	converting string to data
@@ -73,13 +72,10 @@ public class AddContactServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println(contact.getName());
 		
-		// 	display name of the new contact
-		out.println("<html>");
-		out.println("<body>");
-		out.println("Contact " + contact.getName() + " successfully added");
-		out.println("</body>");
-		out.println("</html>");
+		request.setAttribute("contactName", contact.getName());
+		request.getRequestDispatcher("contact-added.jsp").forward(request, response);
 		
 	}
 	

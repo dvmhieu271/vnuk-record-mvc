@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,43 +15,26 @@
 	</head>
 	
 	<body>
-		<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-		<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-		<%@ taglib tagdir="/WEB-INF/tags" prefix="vnuk" %>
+		<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+		<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+		<%@taglib tagdir="/WEB-INF/tags" prefix="vnuk" %>
 		<c:import url="header.jsp" />
 		
 		<h1>Add contacts</h1>
 
-        <form action="addContact" method="POST">
-        	<div>
-        		<label for="name">Name: </label>
-            	<input type="text" name="name" id="name">
-            </div>
+        <form action="addContact" method="POST">            
+            <vnuk:myTextField label="Name: " name="name" id="name"></vnuk:myTextField>
             
-        	<div>
-        		<label for="email">E-mail: </label>
-            	<input type="text" name="email" id="email">
-            </div>
+            <vnuk:myTextField label="E-mail: " name="email" id="email"></vnuk:myTextField>
             
-        	<div>
-        		<label for="address">Address: </label>
-            	<input type="text" name="address" id="address">
-            </div>
-            
-        	<div>
-        		<label for="date-of-birth">Date of birth: </label>
-            	<input type="text" name="date_of_birth" id="date-of-birth">
-            	<script>
-            		$("#date-of-birth").datepicker({dateFormat:'dd/mm/yy'});
-            	</script>
-            </div>
-            
+			<vnuk:myTextField label="Address: " name="address" id="address"></vnuk:myTextField>
+         
+            <vnuk:myDateField name="date_of_birth" id="date-of-birth" label="Date of birth: "/>
             
             <input type="submit" value="Save" />
         </form>
         
-        <vnuk : myDateField name="date_of_birth" id="date-of-birth" label="Date of birth">
-	
+        
 		<c:import url="footer.jsp" />
 	</body>
 	
